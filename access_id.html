@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Use An Existing Patient ID</title>
+        <script src='https://unpkg.com/xrpl@2.2.3'></script>
+        <script src="account.js"></script>
+        <script>
+            if (typeof module !== "undefined") {
+              const xrpl = require('xrpl')
+            }
+            
+          </script>
+    </head>
+
+    <body>
+        <h1>Assign A Prescription To An Existing Patient</h1>
+        <button type="button" onClick="getAccountsFromSeeds()">Generate Patient Profile From ID</button>
+        <br/>
+        <textarea id="seeds" cols="40" rows= "1"></textarea>
+        <br/><br/>
+        <table>
+            <tr valign="top">
+              <td align="right">
+                Patient ID
+              </td>
+              <td>
+                <input type="text" id="patIDField" size="40"></input>
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                Public Key
+              </td>
+              <td>
+                <input type="text" id="patIDPubKeyField" size="40"></input>
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                Private Key
+              </td>
+              <td>
+                <input type="text" id="patIDPrivKeyField" size="40"></input>
+                <br>
+              </td>
+            </tr>
+            <tr>
+              <td align="right">
+                Seed
+              </td>
+              <td>
+                <input type="text" id="patIDSeedField" size="40"></input>
+                <br>
+              </td>
+            </tr>
+        </table>
+        <br>
+        <button type="button" onClick="mintToken()">Assign Patient A Prescription</button>
+        <br>
+        <table>
+          <tr valign="top">
+            <td align="right">
+              Prescription URL
+            </td>
+            <td>
+              <input type ="text" id="prescriptionURL" size="40"></input>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              Prescription ID
+            </td>
+            <td>
+              <input type ="text" id="prescriptionID" size="40"></input>
+              <br>
+            </td>
+          </tr>
+        </table>
+        <br>
+        <textarea id="PatientResultField" cols="40" rows="10" ></textarea>
+        <br>
+        <a href="homepage.html">Return to homepage</a>
+    </body>
+</html>
