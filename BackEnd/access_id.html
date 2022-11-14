@@ -1,8 +1,9 @@
 <!DOCTYPE html>
 <html>
     <head>
-        <title>Use An Existing Patient ID</title>
+        <title>Assign A Prescription</title>
         <script src='https://unpkg.com/xrpl@2.2.3'></script>
+        <script src="patientID.js"></script>
         <script src="account.js"></script>
         <script>
             if (typeof module !== "undefined") {
@@ -13,51 +14,82 @@
     </head>
 
     <body>
-        <h1>Assign A Prescription To An Existing Patient</h1>
-        <button type="button" onClick="getAccountsFromSeeds()">Generate Patient Profile From ID</button>
-        <br/>
-        <textarea id="seeds" cols="40" rows= "1"></textarea>
-        <br/><br/>
+        <h1>Patient Information</h1>
+        <label for="patIDField">Patient ID:</label>
+        <input type="text" id="patIDField" size="40"></input>
+        <br><br>
+        <button type="button" onClick="get_patient()">Generate Patient Profile From ID</button>
+        <br><br>
         <table>
             <tr valign="top">
               <td align="right">
-                Patient ID
+                First Name: 
               </td>
               <td>
-                <input type="text" id="patIDField" size="40"></input>
+                <input type="text" id="firstname" size="40"></input>
                 <br>
               </td>
             </tr>
             <tr>
               <td align="right">
-                Public Key
+                Surname: 
               </td>
               <td>
-                <input type="text" id="patIDPubKeyField" size="40"></input>
+                <input type="text" id="surname" size="40"></input>
                 <br>
               </td>
             </tr>
             <tr>
               <td align="right">
-                Private Key
+                Date of Birth: 
               </td>
               <td>
-                <input type="text" id="patIDPrivKeyField" size="40"></input>
+                <input type="text" id="dob" size="40"></input>
                 <br>
               </td>
             </tr>
             <tr>
               <td align="right">
-                Seed
+                Sex: 
               </td>
               <td>
-                <input type="text" id="patIDSeedField" size="40"></input>
+                <input type="text" id="sex" size="40"></input>
                 <br>
               </td>
             </tr>
         </table>
         <br>
-        <button type="button" onClick="mintToken()">Assign Patient A Prescription</button>
+        <h1>Prescription Details</h1>
+        <table>
+          <tr valign="top">
+            <td align="right">
+              Drug:
+            </td>
+            <td>
+              <input type="text" id="drug" size="40"></input>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              Dose:
+            </td>
+            <td>
+              <input type="text" id="dose" size="40"></input>
+              <br>
+            </td>
+          </tr>
+          <tr>
+            <td align="right">
+              Expiration Date:
+            </td>
+            <td>
+              <input type="date" id="expdate" size="40"></input>
+              <br>
+            </td>
+          </tr>
+        </table>
+<!--         <button type="button" onClick="mintToken()">Assign Patient A Prescription</button>
         <br>
         <table>
           <tr valign="top">
@@ -78,7 +110,7 @@
               <br>
             </td>
           </tr>
-        </table>
+        </table> -->
         <br>
         <textarea id="PatientResultField" cols="40" rows="10" ></textarea>
         <br>

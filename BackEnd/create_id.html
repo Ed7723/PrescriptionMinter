@@ -3,6 +3,7 @@
     <head>
         <title>Create New Patient ID</title>
         <script src='https://unpkg.com/xrpl@2.2.3'></script>
+        <script src="patientID.js"></script>
         <script src="account.js"></script>
         <script>
             if (typeof module !== "undefined") {
@@ -14,48 +15,28 @@
 
     <body>
         <h1>Create New Patient ID</h1>
-        <button type="button" onClick="getAccount()">Create Patient ID</button>
-        <table>
-            <tr valign="top">
-              <td align="right">
-                Patient ID
-              </td>
-              <td>
-                <input type="text" id="patIDField" size="40"></input>
-                <br>
-              </td>
-            </tr>
-            <tr>
-              <td align="right">
-                Public Key
-              </td>
-              <td>
-                <input type="text" id="patIDPubKeyField" size="40"></input>
-                <br>
-              </td>
-            </tr>
-            <tr>
-              <td align="right">
-                Private Key
-              </td>
-              <td>
-                <input type="text" id="patIDPrivKeyField" size="40"></input>
-                <br>
-              </td>
-            </tr>
-            <tr>
-              <td align="right">
-                Seed
-              </td>
-              <td>
-                <input type="text" id="patIDSeedField" size="40"></input>
-                <br>
-              </td>
-            </tr>
-        </table>
+        <form>
+            <label for="firstname">First name:</label>
+            <input type="text" id="firstname" name="firstname"><br><br>
+            <label for="surname">Surname:</label>
+            <input type="text" id="surname" name="surname"><br><br>
+            <label for="dob">Date of Birth:</label>
+            <input type="date" id="dob" name="dob"><br><br>
+            <label for="sex">Sex:</label>
+            <select name="sex" id="sex">
+                <option value="Male">M</option>
+                <option value="Female">F</option>
+                <option value="Other">Other</option>
+            </select><br><br>
+            <input type="button" onClick="getAccount()" value="Submit"></button>
+          </form>
+        <br>
+        <label for ="patIDSeedField">Patient ID:</label>
+        <input type="text" id="patIDSeedField" size="40"></input>
+        <br>
         <br>
         <textarea id="PatientResultField" cols="40" rows="10" ></textarea>
-        <br>
+        <br><br>
         <a href="homepage.html">Return to homepage</a>
     </body>
 </html>
