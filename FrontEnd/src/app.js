@@ -1,10 +1,12 @@
 import React, { Component } from 'react'
+import "./index.css"
+import Navbar from './Nav/navbar'
 
 class App extends Component {
   render() {
     return (
-      <div className="App">
-        <h1>Prescriptoken RXT</h1>
+      <div>
+        <Navbar />
       </div>
     )
   }
