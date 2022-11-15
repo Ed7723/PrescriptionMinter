@@ -13,16 +13,14 @@ async function getAccount(type){
     document.getElementById('PatientResultField').value = results
     
     const my_wallet = (await client.fundWallet(null, { faucetHost })).wallet
-    results += '\nProfile created.'
-    document.getElementById('PatientResultField').value = results
-
     const my_balance = (await client.getXrpBalance(my_wallet.address))
-    document.getElementById('patIDField').value = my_wallet.address
-    document.getElementById('patIDPubKeyField').value = my_wallet.publicKey
-    document.getElementById('patIDPrivKeyField').value = my_wallet.privateKey
     document.getElementById('patIDSeedField').value = my_wallet.seed
     results += '\nPatient ID created.'
+    document.getElementById('PatientResultField').value = results
     client.disconnect()
+
+/*     const nextfunction = require('./patientID') */
+    nextfunction.create_patient()
 }  
 
 async function getAccountsFromSeeds(){
