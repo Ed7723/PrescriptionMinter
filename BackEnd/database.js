@@ -1,8 +1,10 @@
+require('dotenv').config({path: 'config.env'});
 const {MongoClient} = require('mongodb');
+
 
 async function main() {
 
-    const uri ="mongodb+srv://Mongko:nL7yt2vWrxRB1hJV@patient-prescription-da.mlaoml8.mongodb.net/?retryWrites=true&w=majority"; // link to MongoDB cluster
+    const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@patient-prescription-da.mlaoml8.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
 
     const client = new MongoClient(uri); // creates connection to MongoDB cluster
 
@@ -23,5 +25,4 @@ async function createPatient(client, newPatient){
 
     console.log(`New listing created with the following id: ${result.insertedId}`); // returns patient's account seed
 }
-
 main().catch(console.error);
