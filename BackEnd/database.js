@@ -1,7 +1,6 @@
 require('dotenv').config({path: 'config.env'});
 const {MongoClient} = require('mongodb');
 
-
 async function main() {
 
     const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@patient-prescription-da.mlaoml8.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
