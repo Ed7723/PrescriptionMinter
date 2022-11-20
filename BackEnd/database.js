@@ -24,11 +24,11 @@ async function createPatient(){
     const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(
         //patient object
         {
-            firstname: // first name field
-            surname: // surname field
-            dob: // date of birth field
-            sex: // sex field
-            _id: // account seed field
+            firstname: "",// first name field
+            surname: "",// surname field
+            dob: "",// date of birth field
+            sex: "",// sex field
+            _id: 000// account seed field
         }
     );
 

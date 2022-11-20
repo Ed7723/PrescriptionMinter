@@ -28,8 +28,7 @@ async function getAccount(type){
     const mongo_client = new MongoClient(uri); // creates connection to MongoDB cluster
 
     await mongo_client.connect();
-    createPatient();
-    
+    createPatient();    
     await mongo_client.close();
 }  
 
