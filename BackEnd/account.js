@@ -1,26 +1,36 @@
 async function getAccount(type){
-    let net = "wss://xls20-sandbox.rippletest.net:51233" //XLS20-NFT
+  require('dotenv').config({path: 'config.env'});
+  const {MongoClient} = require('mongodb');
 
-    const client = new xrpl.Client(net)
-    results = 'Connecting to ' + net + '...'
+  // creates patient wallet on the XRPL
+    let net = "wss://xls20-sandbox.rippletest.net:51233"; //XLS20-NFT
 
-    let faucetHost = "faucet-nft.ripple.com"
+    const xrpl_client = new xrpl.Client(net);
+    log = 'Connecting to ' + net + '...';
 
-    document.getElementById('PatientResultField').value = results
-    await client.connect()
+    let faucetHost = "faucet-nft.ripple.com";
 
-    results += '\nConnected, creating patient profile.'
-    document.getElementById('PatientResultField').value = results
+    document.getElementById('PatientResultField').value = log;
+    await xrpl_client.connect();
+
+    log += '\nConnected, creating patient profile.';
+    document.getElementById('PatientResultField').value = log;
     
-    const my_wallet = (await client.fundWallet(null, { faucetHost })).wallet
-    const my_balance = (await client.getXrpBalance(my_wallet.address))
-    document.getElementById('patIDSeedField').value = my_wallet.seed
-    results += '\nPatient ID created.'
-    document.getElementById('PatientResultField').value = results
-    client.disconnect()
+    const my_wallet = (await xrpl_client.fundWallet(null, { faucetHost })).wallet;
+    //const my_balance = (await xrpl_client.getXrpBalance(my_wallet.address));
+    document.getElementById('patIDSeedField').value = my_wallet.seed;
+    log += '\nPatient ID created.';
+    document.getElementById('PatientResultField').value = log;
+    xrpl_client.disconnect();
 
-/*     const nextfunction = require('./patientID') */
-    nextfunction.create_patient()
+    // creates patient entry in the MongoDB cluster
+    const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@prescriptoken-cluster.dwtcg4i.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
+    const mongo_client = new MongoClient(uri); // creates connection to MongoDB cluster
+
+    await mongo_client.connect();
+    createPatient();
+    
+    await mongo_client.close();
 }  
 
 async function getAccountsFromSeeds(){
