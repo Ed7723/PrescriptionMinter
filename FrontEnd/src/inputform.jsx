@@ -1,36 +1,45 @@
-import React, { Component , useState} from 'react'
+import React, { useState} from 'react'
 import { useNavigate } from "react-router";
 import "./index.css"
 
-class Inputform extends Component{
-    constructor(props){
-        super(props);
-    this.state = { firstName: "", lastName: "", dateOfBirth: "" , gender:"", patientIDSeed:"",patientIDResult:""};
-    this.handleChange = this.handleChange.bind(this);
-    this.handleSubmit = this.handleSubmit.bind(this);
-    };
-
-    handleSubmit(event) {
-        event.preventDefault();
-        
+export default function Inputform(){
+    const [form, setForm] = useState({
+        name: "",
+        position: "",
+        level: "",
+      });
+      const navigate = useNavigate();
+      
+      // These methods will update the state properties.
+      function updateForm(value) {
+        return setForm((prev) => {
+          return { ...prev, ...value };
+        });
+      }
+      
+      // This function will handle the submission.
+      async function onSubmit(e) {
+        e.preventDefault();
+      
+        // When a post request is sent to the create url, we'll add a new record to the database.
         const newPerson = { ...form };
-        //Add route to the fetch link.
-        await fetch("", {
-            method: "POST",
-            headers: {
+      
+        await fetch("http://localhost:5000/record/add", {
+          method: "POST",
+          headers: {
             "Content-Type": "application/json",
-            },
-            body: JSON.stringify(newPerson),
+          },
+          body: JSON.stringify(newPerson),
         })
         .catch(error => {
-            window.alert(error);
-            return;
+          window.alert(error);
+          return;
         });
-        
+      
+        setForm({ name: "", position: "", level: "" });
         navigate("/");
-    }
+      }
 
-    render(){
         return(
         <div className ="max-w-2xl mx-auto bg-white p-16">
             <form onSubmit = {this.handleSubmit}>
@@ -70,7 +79,4 @@ class Inputform extends Component{
             </form>
         </div>
         )
-    }
 }
-
-export default Inputform
