@@ -1,17 +1,15 @@
-import React, { Component } from 'react'
-import "./index.css"
-import Navbar from './Nav/navbar'
-import Inputform from './inputform'
+import { Hero } from "./components/hero";
+import { Navbar } from "./components/navbar";
+import { Features } from "./components/features";
 
-class App extends Component {
-  render() {
-    return (
-      <div>
-        <Navbar />
-        <Inputform />
-      </div>
-    )
-  }
+function App() {
+  return (
+    <>
+      <Navbar />
+      <Hero />
+      <Features />
+    </>
+  );
 }
 
-export default App
+export default App;
