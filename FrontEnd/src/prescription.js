@@ -8,7 +8,6 @@ class Prescription extends Component {
     return (
       <div>
         <Navbar />
-        <Inputform />
       </div>
     )
   }

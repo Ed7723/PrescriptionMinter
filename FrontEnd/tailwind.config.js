@@ -8,7 +8,7 @@ module.exports = {
     'blueThree':'#0c71c2',
     'blueFour':'#71bbf6',
     'whiteOne':'#ffffff',
-    'whiteTwo':'#e6e6e6'
+    'whiteTwo':'#e6e6e6',
     },
     extend: {},
   },
