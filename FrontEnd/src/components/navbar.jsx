@@ -21,8 +21,9 @@ export const Navbar = () => {
 
                 {/* Login Button */}
                 <div className="px-2">
-                    <button className="hover:ring-gray-900/20 text-sm">Login</button>
+                    <button className="inline-block rounded-lg px-3 py-1.5 font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-sm">Login</button>
                 </div>
+                
             </div>
         </div>
     )

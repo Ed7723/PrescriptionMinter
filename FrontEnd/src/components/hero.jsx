@@ -13,7 +13,7 @@ export const Hero = () => {
                     drugs and medicine to patients can now be done with ease and security.
                 </p>
                 <div className="mt-8 flex gap-x-4 sm:justify-center">
-                    <button className="hover:ring-gray-900/20 px-4 leading-7">Get Started</button>
+                    <button className="inline-block rounded-lg px-3 py-1.5 font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 px-4 leading-7">Get Started</button>
                 </div>
             </div>
         </div>
