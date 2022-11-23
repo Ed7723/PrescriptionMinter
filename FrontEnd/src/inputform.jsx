@@ -23,7 +23,7 @@ export default function Inputform(){
       
         const newPerson = { ...form };
       
-        await fetch("http://localhost:8000/record/add", {
+        await fetch("http://localhost:8000/routing/add", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
