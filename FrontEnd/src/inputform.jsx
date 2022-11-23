@@ -1,5 +1,4 @@
 import React, { useState} from 'react'
-import { useNavigate } from "react-router";
 import "./index.css"
 
 export default function Inputform(){
@@ -10,7 +9,6 @@ export default function Inputform(){
         patientIDResult:"",
         patientIDSeed:"",
       });
-    const navigate = useNavigate();
       
       // These methods will update the state properties.
       function updateForm(value) {
@@ -23,10 +21,9 @@ export default function Inputform(){
     async function onSubmit(e) {
         e.preventDefault();
       
-        // When a post request is sent to the create url, we'll add a new record to the database.
         const newPerson = { ...form };
       
-        await fetch(" ", {
+        await fetch("http://localhost:8000/record/add", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -45,7 +42,6 @@ export default function Inputform(){
             patientIDResult:"",
             patientIDSeed:"",
           });
-        navigate("/");
     }
 
     return(

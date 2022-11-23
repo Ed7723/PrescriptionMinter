@@ -6,18 +6,22 @@ const express = require("express");
 const recordRoutes = express.Router();
  
 // This will help us connect to the database
-const dbo = require("../db/database");
+const dbo = require("../db/connect");
  
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
 // This section will help you create a new record.
-recordRoutes.route("").post(function (req, response) {
+recordRoutes.route("/routing/add").post(function (req, response) {
  let db_connect = dbo.getDb();
  let myobj = {
-   
+  firstName:req.body.firstName,
+  lastName:req.body.lastName,
+  dateOfBirth:req.body.dateOfBirth,
+  patientIDResult:req.body.patientIDResult,
+  patientIDSeed:req.body.patientIDSeed,
  };
- db_connect.collection("").insertOne(myobj, function (err, res) {
+ db_connect.collection("patients").insertOne(myobj, function (err, res) {
    if (err) throw err;
    response.json(res);
  });
