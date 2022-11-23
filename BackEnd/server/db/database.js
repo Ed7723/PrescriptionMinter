@@ -108,4 +108,4 @@ async function deletePatient(client, ID){
 
 }
 
-//mongo_connect().catch(console.error);
+mongo_connect().catch(console.error);
