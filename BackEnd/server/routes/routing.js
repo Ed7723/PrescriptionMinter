@@ -18,7 +18,7 @@ recordRoutes.route("/routing/add").post(function (req, response) {
   firstName:req.body.firstName,
   lastName:req.body.lastName,
   dateOfBirth:req.body.dateOfBirth,
-  patientIDResult:req.body.patientIDResult,
+  sex:req.body.sex,
   patientIDSeed:req.body.patientIDSeed,
  };
  db_connect.collection("patients").insertOne(myobj, function (err, res) {
