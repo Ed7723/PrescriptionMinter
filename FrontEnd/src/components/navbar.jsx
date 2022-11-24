@@ -7,7 +7,7 @@ export const Navbar = () => {
         <div className='relative container mx-auto pb-6'>
             <div className='flex items-center justify-between'>
                 {/* Logo */}
-                <div class="pt-2">
+                <div className="pt-2">
                     <img className="object-cover h-40 w80" src={logo} alt="" />
                 </div>
 
