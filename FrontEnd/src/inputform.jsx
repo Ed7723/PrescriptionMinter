@@ -6,7 +6,7 @@ export default function Inputform(){
         firstName: "",
         lastName: "",
         dateOfBirth: "",
-        patientIDResult:"",
+        sex: "Male",
         patientIDSeed:"",
       });
       
@@ -16,6 +16,21 @@ export default function Inputform(){
           return { ...prev, ...value };
         });
     }
+
+    const sex = [
+        {
+            label:"Male",
+            value:"Male",
+        },
+        {
+            label:"Female",
+            value:"Female",
+        },
+        {
+            label:"Other",
+            value:"Other",
+        },
+    ];
       
       // This function will handle the submission.
     async function onSubmit(e) {
@@ -39,7 +54,7 @@ export default function Inputform(){
             firstName: "",
             lastName: "",
             dateOfBirth: "",
-            patientIDResult:"",
+            sex:"",
             patientIDSeed:"",
           });
     }
@@ -61,11 +76,11 @@ export default function Inputform(){
                         <input type="date" id="date_of_birth" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" value = {form.dateOfBirth} onChange={(e) => updateForm({ dateOfBirth: e.target.value })} required />
                     </div>  
                     <div>
-                        <label for="sex" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select Gender</label>
-                        <select id="sex" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" required>
-                            <option value ="male">Male</option>
-                            <option value = "female">Female</option>
-                            <option value = "other">Other</option>
+                        <label for="sex" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Select Sex</label>
+                        <select id="sex" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" value = {form.sex} onChange={(e) => updateForm({ sex: e.target.value })}  required>
+                        {sex.map((sex) => (
+                            <option value={sex.value}>{sex.label}</option>
+                            ))}
                         </select>
                     </div>
                 </div>
@@ -74,10 +89,6 @@ export default function Inputform(){
                         <label for="patient_id_seed" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Patient ID Seed</label>
                         <input type="text" id="patient_id_seed" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" value = {form.patientIDSeed} onChange={(e) => updateForm({ patientIDSeed: e.target.value })} required />
                     </div>
-                    <div className="mb-6">
-                        <label for="patient_id_result" className="block mb-2 text-sm font-medium text-gray-900 dark:text-gray-300">Patient ID Result</label>
-                        <textarea id="patient_id_result" className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500" placeholder="" value = {form.patientIDResult} onChange={(e) => updateForm({ patientIDResult: e.target.value })} required />
-                    </div> 
                     <button type="submit" className="text-whiteTwo bg-blueOne hover:bg-blueTwo focus:ring-4 focus:outline-none focus:ring-blue-500 font-medium rounded-lg text-sm w-full sm:w-auto px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">Submit</button>
                 </div>
             </form>
