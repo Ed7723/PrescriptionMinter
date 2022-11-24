@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
+import { NavLink } from "react-router-dom";
+
 
 export const Navbar = () => {
     const [nav, setNav] = useState(false)
@@ -18,8 +20,8 @@ export const Navbar = () => {
 
                 {/* Menu Items */}
                 <ul className="hidden space-x-10 md:flex">
-                    <li className="font-semibold hover:text-darkGrayishBlue">Patient Database</li>
-                    <li className="font-semibold hover:text-darkGrayishBlue">New Patient</li>
+                    <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/database">Patient Database</NavLink></li>
+                    <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/input">New Patient</NavLink></li>
                     <li className="font-semibold hover:text-darkGrayishBlue">Drug Database</li>
                     <li className="font-semibold hover:text-darkGrayishBlue">Features</li>
                 </ul>
