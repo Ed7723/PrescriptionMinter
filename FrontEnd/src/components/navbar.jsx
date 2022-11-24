@@ -1,5 +1,4 @@
 import React from 'react';
-import { MenuIcon } from '@heroicons/react/outline';
 import logo from '../assets/logo.svg';
 
 export const Navbar = () => {
