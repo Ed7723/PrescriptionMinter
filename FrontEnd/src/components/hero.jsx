@@ -8,7 +8,7 @@ export const Hero = () => {
                     Prescribe with ease with NFTs
                 </h1>
 
-                <p className="mt-6 text-lg leading-8 text-gray-600 md:text-center">
+                <p className="mt-6 text-lg leading-8 text-gray-600 text-center">
                     Welcome to Prescriptoken. Through the use of block-chain technology, prescription of
                     drugs and medicine to patients can now be done with ease and security.
                 </p>

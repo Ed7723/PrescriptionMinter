@@ -8,16 +8,18 @@ module.exports = {
       lg: '976px',
       xl: '1440px'
     },
-    colors:{
-    'brightBlue':'#118df0',
-    'lightBlue':'#41a4f3',
-    'darkBlue':'#0c71c2',
-    'veryLightBlue':'#71bbf6',
-    'whiteOne':'#ffffff',
-    'lightGrey':'#e6e6e6',
-    'darkGrayishBlue': 'hsl(227, 12%, 55%)',
+
+    extend: {
+      colors: {
+        'brightBlue': '#118df0',
+        'lightBlue': '#41a4f3',
+        'darkBlue': '#0c71c2',
+        'veryLightBlue': '#71bbf6',
+        'whiteOne': '#ffffff',
+        'lightGray': '#e6e6e6',
+        'darkGrayishBlue': 'hsl(227, 12%, 55%)',
+      },
     },
-    extend: {},
   },
   plugins: [],
 }
