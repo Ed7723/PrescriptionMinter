@@ -18,22 +18,22 @@ export const Features = () => {
                 {/* Item 1 */}
                 <div className="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
 
-                    <div class="rounded-l-full bg-lightGrey md:bg-transparent">
-                        <div class="flex items-center space-x-2">
-                            <div class="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
+                    <div className="rounded-l-full bg-lightGrey md:bg-transparent">
+                        <div className="flex items-center space-x-2">
+                            <div className="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
                                 1
                             </div>
-                            <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            <h3 className="text-base font-bold md:mb-4 md:hidden">
                                 Fraud Prevention
                             </h3>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        <h3 className="hidden mb-4 text-lg font-bold md:block">
                             Fraud Prevention
                         </h3>
-                        <p class="text-darkGrayishBlue">
+                        <p className="text-darkGrayishBlue">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -44,22 +44,22 @@ export const Features = () => {
                 {/* Item 2 */}
                 <div className="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
 
-                    <div class="rounded-l-full bg-lightGrey md:bg-transparent">
-                        <div class="flex items-center space-x-2">
-                            <div class="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
+                    <div className="rounded-l-full bg-lightGrey md:bg-transparent">
+                        <div className="flex items-center space-x-2">
+                            <div className="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
                                 2
                             </div>
-                            <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            <h3 className="text-base font-bold md:mb-4 md:hidden">
                                 Automatic Refills
                             </h3>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        <h3 className="hidden mb-4 text-lg font-bold md:block">
                             Automatic Refills
                         </h3>
-                        <p class="text-darkGrayishBlue">
+                        <p className="text-darkGrayishBlue">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
@@ -70,22 +70,22 @@ export const Features = () => {
                 {/* Item 3 */}
                 <div className="flex flex-col space-y-3 md:space-y-0 md:space-x-6 md:flex-row">
 
-                    <div class="rounded-l-full bg-lightGrey md:bg-transparent">
-                        <div class="flex items-center space-x-2">
-                            <div class="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
+                    <div className="rounded-l-full bg-lightGrey md:bg-transparent">
+                        <div className="flex items-center space-x-2">
+                            <div className="px-4 py-2 text-white rounded-full md:py-1 bg-brightBlue">
                                 3
                             </div>
-                            <h3 class="text-base font-bold md:mb-4 md:hidden">
+                            <h3 className="text-base font-bold md:mb-4 md:hidden">
                                 Ease of Access
                             </h3>
                         </div>
                     </div>
 
                     <div>
-                        <h3 class="hidden mb-4 text-lg font-bold md:block">
+                        <h3 className="hidden mb-4 text-lg font-bold md:block">
                             Ease of Access
                         </h3>
-                        <p class="text-darkGrayishBlue">
+                        <p className="text-darkGrayishBlue">
                             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
                             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
 
