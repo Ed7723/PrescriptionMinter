@@ -36,7 +36,7 @@ export default function Inputform(){
         e.preventDefault();
       
         const newPerson = { ...form };
-      
+        //Currently only works on localhost
         await fetch("http://localhost:8000/routing/add", {
           method: "POST",
           headers: {
