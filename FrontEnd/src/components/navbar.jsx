@@ -40,8 +40,8 @@ export const Navbar = () => {
                 <div className={!nav ? 'fixed left-0 top-0 w-[70%] h-full border-r border-r-gray-900 bg-white' : 'fixed left-[-100%] top-0 w-[70%] h-full border-r border-r-gray-900 bg-white'}>
                     <h1 className="w-full text-3xl font-bold mx-6 mt-8 mb-2">Prescriptoken</h1>
                     <ul className='p-4 font-semibold'>
-                        <li className="p-4 border-b border-gray-600">Patient Database</li>
-                        <li className="p-4 border-b border-gray-600">New Patient</li>
+                        <li className="p-4 border-b border-gray-600"><NavLink to="/database">Patient Database</NavLink></li>
+                        <li className="p-4 border-b border-gray-600"><NavLink to="/input">New Patient</NavLink></li>
                         <li className="p-4 border-b border-gray-600">Drug Database</li>
                         <li className="p-4 border-b border-gray-600">Features</li>
                         <li className="p-4">Log In</li>
