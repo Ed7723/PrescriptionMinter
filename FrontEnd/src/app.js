@@ -4,6 +4,7 @@ import { Features } from "./components/features";
 import Inputform  from "./components/inputform";
 import DatabaseTable from "./components/database";
 import {BrowserRouter, Route,Routes} from 'react-router-dom';
+import Deleteform from "./components/deleteform";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
       </Routes>
       <Hero />
       <Features />
+      <Deleteform/>
     </BrowserRouter>
     </>
   );
