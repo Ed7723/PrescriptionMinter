@@ -6,14 +6,13 @@ const express = require("express");
 const recordRoutes = express.Router();
  
 // This will help us connect to the database
-const dbo = require("../db/connect");
+const dbo = require("../db/database");
  
 // This help convert the id from string to ObjectId for the _id.
 const ObjectId = require("mongodb").ObjectId;
  
-// This section will help you create a new record.
+// This section will help you create a new patient
 recordRoutes.route("/routing/add").post(function (req, response) {
- let db_connect = dbo.getDb();
  let myobj = {
   firstName:req.body.firstName,
   lastName:req.body.lastName,
@@ -21,11 +20,18 @@ recordRoutes.route("/routing/add").post(function (req, response) {
   sex:req.body.sex,
   patientIDSeed:req.body.patientIDSeed,
  };
- db_connect.collection("patients").insertOne(myobj, function (err, res) {
-   if (err) throw err;
-   response.json(res);
- });
+ dbo.createPatient(ObjectId,myobj);
 });
- 
+// This section will help delete a patient.
+recordRoutes.route("/:id").post(function (req, response) {
+  let myobj = {
+   firstName:req.body.firstName,
+   lastName:req.body.lastName,
+   dateOfBirth:req.body.dateOfBirth,
+   sex:req.body.sex,
+   patientIDSeed:req.body.patientIDSeed,
+  };
+  dbo.deletePatient(patientIDSeed);
+ });
 
 module.exports = recordRoutes;

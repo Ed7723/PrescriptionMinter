@@ -16,30 +16,21 @@ module.export={
             }
         }
         catch (e) {
-            return callback(e)
+            console.error(e);
         } 
     },
 
-    // Creates a patient entry
-    createPatient: async function createPatient(client, Patient){
+    // Creates a patient entry from data passsed into its parameter.
+    createPatient: async function createPatient(Patient){
 
-        const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(Patient);
-            //patient object
-    /*         {
-                firstname: "",// first name field
-                surname: "",// surname field
-                dob: "",// date of birth field
-                sex: "",// sex field
-                _id: 000// account seed field
-            } */
-
+        const result = await _db.db("Medical_Records").collection("Patient_Info").insertOne(Patient);
         console.log(`New patient created with the following id: ${result.insertedId}`);
     },
 
     // Finds a patient
-    retrievePatient: async function retrievePatient(client, ID){
+    retrievePatient: async function retrievePatient(ID){
 
-        const result = await client.db("Medical_Records").collection("Patient_Info").findOne({firstname: ID}); // change firstname from {firstname: ID} to anything else to query based off other variables
+        const result = await _db.db("Medical_Records").collection("Patient_Info").findOne({firstname: ID}); // change firstname from {firstname: ID} to anything else to query based off other variables
 
         if (result) {
             console.log(`Found patient: ${ID}`);
@@ -53,9 +44,9 @@ module.export={
 
     // Updates a patient's information
     // Finds a patient based off one variable -> modify any number of variables in the entry
-    updatePatient: async function updatePatient(client, info, newinfo){
+    updatePatient: async function updatePatient( info, newinfo){
 
-        const result = await client.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo});
+        const result = await _db.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo});
 
         console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} patient(s) was/were updated.`)
@@ -63,9 +54,9 @@ module.export={
 
     // Upserts a patient's information
     // Combines create, read, and update functionality
-    upsertPatient: async function upsertPatient(client, info, newinfo){
+    upsertPatient: async function upsertPatient(info, newinfo){
 
-        const result = await client.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo}, {upsert: true}); // change firstname from {firstname: info} to anything else to query based off other variables
+        const result = await _db.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo}, {upsert: true}); // change firstname from {firstname: info} to anything else to query based off other variables
 
         console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
         
@@ -78,9 +69,9 @@ module.export={
     },
 
     // Deletes a patient
-    deletePatient: async function deletePatient(client, ID){
+    deletePatient: async function deletePatient(ID){
 
-        const result = await client.db("Medical_Records").collection("Patient_Info").deleteOne({firstname: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
+        const result = await _db.db("Medical_Records").collection("Patient_Info").deleteOne({firstname: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
 
         console.log(`${result.deletedCount} patient(s) was/were deleted.`)
 
