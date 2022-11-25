@@ -1,3 +1,4 @@
+//This component is our mainpage.
 import React from 'react'
 
 export const Hero = () => {

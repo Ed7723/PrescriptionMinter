@@ -1,3 +1,4 @@
+//This component is the extension of the landing page.
 import React from 'react'
 
 export const Features = () => {

@@ -1,3 +1,4 @@
+//This components loads both the horizontal navbar on the top of the page and also a vertical navbar when the screen gets small
 import React, { useState } from 'react';
 import logo from '../assets/logo.svg';
 import { MenuIcon, XIcon } from '@heroicons/react/outline'
