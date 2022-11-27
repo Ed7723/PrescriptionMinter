@@ -1,7 +1,7 @@
 //This component submits a form to create a new patient.
 import React, { useState} from 'react'
 
-export default function Inputform(){
+export function Inputform(){
     const [form, setForm] = useState({
         firstName: "",
         lastName: "",

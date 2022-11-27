@@ -1,6 +1,6 @@
 import React,{useState} from 'react';
 //This component will enabling deletion of patients within the database.
-export default function Deleteform() {
+export function Deleteform() {
   const [form, setForm] = useState({
     patientIDSeed:"",
   });
