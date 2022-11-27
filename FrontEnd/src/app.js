@@ -6,6 +6,7 @@ import {DatabaseTable} from "./components/database";
 import {BrowserRouter, Route,Routes} from 'react-router-dom';
 import {Deleteform}from "./components/deleteform";
 import {About} from "./components/about"
+import {Footer} from "./components/footer"
 
 function App() {
   return (
@@ -21,6 +22,7 @@ function App() {
       <Hero />
       <Features />
       <Deleteform/>
+      <Footer />
     </BrowserRouter>
     </>
   );
