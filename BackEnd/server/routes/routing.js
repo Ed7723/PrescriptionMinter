@@ -25,10 +25,6 @@ recordRoutes.route("/routing/add").post(function (req, response) {
 // This section will help delete a patient.
 recordRoutes.route("/:id").post(function (req, response) {
   let myobj = {
-   firstName:req.body.firstName,
-   lastName:req.body.lastName,
-   dateOfBirth:req.body.dateOfBirth,
-   sex:req.body.sex,
    patientIDSeed:req.body.patientIDSeed,
   };
   dbo.deletePatient(patientIDSeed);
