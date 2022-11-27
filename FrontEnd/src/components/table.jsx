@@ -1,5 +1,7 @@
 //This component will load a table
-export default function Table() {
+export function Table() {
+
+
     return (
       <>
   <div className="container mx-auto px-4 sm:px-8 max-w-3xl">
@@ -25,16 +27,16 @@ export default function Table() {
                         <thead>
                             <tr>
                                 <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                    User
+                                    Name
                                 </th>
                                 <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                    Role
+                                    Date of Birth
                                 </th>
                                 <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                    Created at
+                                    Patient ID
                                 </th>
                                 <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                    status
+                                    Sex
                                 </th>
                                 <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
                                 </th>
@@ -46,24 +48,23 @@ export default function Table() {
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
                                             <a href="#" className="block relative">
-                                                <img alt="profil" src="/images/person/8.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
                                             </a>
                                         </div>
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                Jean marc
+                                                Jane Doe
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        Admin
+                                        Patient
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        12/09/2020
+                                        1234
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -71,7 +72,7 @@ export default function Table() {
                                         <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                         </span>
                                         <span className="relative">
-                                            active
+                                            Female
                                         </span>
                                     </span>
                                 </td>
@@ -86,24 +87,23 @@ export default function Table() {
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
                                             <a href="#" className="block relative">
-                                                <img alt="profil" src="/images/person/9.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
                                             </a>
                                         </div>
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                Marcus coco
+                                                John Doe
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        Designer
+                                        Patient
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        01/10/2012
+                                        12345
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -111,7 +111,7 @@ export default function Table() {
                                         <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                         </span>
                                         <span className="relative">
-                                            active
+                                            Male
                                         </span>
                                     </span>
                                 </td>
@@ -126,24 +126,23 @@ export default function Table() {
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
                                             <a href="#" className="block relative">
-                                                <img alt="profil" src="/images/person/10.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
                                             </a>
                                         </div>
                                         <div className="ml-3">
                                             <p className="text-gray-900 whitespace-no-wrap">
-                                                Ecric marc
+                                                John Smith
                                             </p>
                                         </div>
                                     </div>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        Developer
+                                        Doctor
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        02/10/2018
+                                        abcde
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -151,7 +150,7 @@ export default function Table() {
                                         <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                         </span>
                                         <span className="relative">
-                                            active
+                                            Male
                                         </span>
                                     </span>
                                 </td>
@@ -166,7 +165,6 @@ export default function Table() {
                                     <div className="flex items-center">
                                         <div className="flex-shrink-0">
                                             <a href="#" className="block relative">
-                                                <img alt="profil" src="/images/person/6.jpg" className="mx-auto object-cover rounded-full h-10 w-10 "/>
                                             </a>
                                         </div>
                                         <div className="ml-3">
@@ -178,12 +176,12 @@ export default function Table() {
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        User
+                                        Patient
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
                                     <p className="text-gray-900 whitespace-no-wrap">
-                                        23/09/2010
+                                        123456
                                     </p>
                                 </td>
                                 <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
@@ -191,7 +189,7 @@ export default function Table() {
                                         <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
                                         </span>
                                         <span className="relative">
-                                            active
+                                             Male
                                         </span>
                                     </span>
                                 </td>
