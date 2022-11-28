@@ -14,10 +14,10 @@ export const Navbar = () => {
     return (
         <div className='relative container mx-auto pb-6'>
             <div className='flex items-center justify-between'>
-                {/* Logo */}
-                <div className="pt-2">
-                    <img className="object-cover h-40 w80" src={logo} alt="" />
-                </div>
+                {/* Logo */}            
+                <a href="" className='pt-2'>
+                    <NavLink to="/"><img className="object-cover h-40 w80" src={logo} alt="" /></NavLink>
+                </a>
 
                 {/* Menu Items */}
                 <ul className="hidden space-x-10 md:flex">
@@ -33,12 +33,13 @@ export const Navbar = () => {
                 </div>
 
                 {/* Cheeseburger Menu */}
-                <div onClick={handleNav} className='md:hidden'>
+                <div onClick={handleNav} className='md:hidden pr-3'>
                     {!nav ? <XIcon className='w-8' /> : <MenuIcon className='w-8' />}
 
                 </div>
 
-                <div className={!nav ? 'fixed left-0 top-0 w-[20%] h-full border-r border-r-gray-900 bg-white' : 'fixed left-[-100%] top-0 w-[70%] h-full border-r border-r-gray-900 bg-white'}>
+                <div className={!nav ? 'fixed left-0 top-0 w-[80%] h-full border-r border-r-gray-900 bg-white md:hidden' : 
+                                       'fixed left-[-100%] top-0 w-[70%] h-full border-r border-r-gray-900 bg-white md:hidden'}>
                     <h1 className="w-full text-3xl font-bold mx-6 mt-8 mb-2">Prescriptoken</h1>
                     <ul className='p-4 font-semibold'>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/database">Patient Database</NavLink></li>

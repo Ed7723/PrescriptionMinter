@@ -9,8 +9,9 @@ export const Features = () => {
                 <h2 className="max-w-md text-4xl font-bold text-center md:text-left">
                     Prescriptoken vs Traditional Prescription
                 </h2>
-                <p className="max-w-sm text-center text-darkGrayishBlue md:text-left">
+                <p className="max-w-md text-center text-darkGrayishBlue md:text-left">
                     Using prescriptoken have many advantages over the traditional method of prescribing to patients.
+                    These includes fraud prevention, automatic refills and ease of access by the patients
                 </p>
             </div>
 
@@ -35,9 +36,8 @@ export const Features = () => {
                             Fraud Prevention
                         </h3>
                         <p className="text-darkGrayishBlue">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+                            Prescription fraud happens when people obtain medications by deception. One of the most common tactics is to forge or alter a prescription. With the use of
+                            Prescriptoken. Once the token is minted, the prescription can not be altered or change. Therefore effectively reducing fraud.
                         </p>
                     </div>
                 </div>
@@ -61,9 +61,9 @@ export const Features = () => {
                             Automatic Refills
                         </h3>
                         <p className="text-darkGrayishBlue">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+                            Prescriptoken allow the automatic delivery of a refill prescription to the patients without
+                            the doctor having to write multiple prescriptions at once or the patients physically showing up
+                            to get the refill prescription.
                         </p>
                     </div>
                 </div>
@@ -87,9 +87,8 @@ export const Features = () => {
                             Ease of Access
                         </h3>
                         <p className="text-darkGrayishBlue">
-                            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-                            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-
+                            Each prescriptoken is stored securely on the XRP blockchain linked to the patient' medical profiles. 
+                            It can then be easily accessed by the patients on any devices.
                         </p>
                     </div>
                 </div>
