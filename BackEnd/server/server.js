@@ -11,7 +11,7 @@ const dbo = require("./db/database");
  
 app.listen(port, () => {
   // perform a database connection when server starts
-  dbo.connectToServer(function (err) {
+  dbo.mongoConnect((err) => {
     if (err) console.error(err);
  
   });

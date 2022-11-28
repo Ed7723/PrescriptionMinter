@@ -1,23 +1,22 @@
 require('dotenv').config({path: '../config.env'}); // module to prevent exposure of MongoDB credentials
-const { MongoClient, ServerApiVersion } = require('mongodb'); // MongoDB module
+const { MongoClient} = require('mongodb'); // MongoDB module
 const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@prescriptoken-cluster.dwtcg4i.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
-const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true, serverApi: ServerApiVersion.v1 }); // creates connection to MongoDB cluster
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true}); // creates connection to MongoDB cluster
 var _db;
 
 // Function to connect to the MongoDB cluster
 module.export={
-    mongoConnect: async function mongoConnect() {
+    mongoConnect: async function mongoConnect(){
         try {
-            await client.connect(e,db);
-            if (db)
-            {
-                _db = db.db("Medical_Records");
-                console.log("Successfully connected to MongoDB."); 
-            }
-        }
-        catch (e) {
-            console.error(e);
-        } 
+            // Connect the client to the server (optional starting in v4.7)
+            await client.connect();
+            // Establish and verify connection
+            await client.db("Medical_Records").command({ ping: 1 });
+            console.log("Connected successfully to server");
+          } finally {
+            // Ensures that the client will close when you finish/error
+            await client.close();
+          }
     },
 
     // Creates a patient entry from data passsed into its parameter.
@@ -71,7 +70,7 @@ module.export={
     // Deletes a patient
     deletePatient: async function deletePatient(ID){
 
-        const result = await _db.db("Medical_Records").collection("Patient_Info").deleteOne({firstname: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
+        const result = await _db.db("Medical_Records").collection("Patient_Info").deleteOne({patientIDSeed: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
 
         console.log(`${result.deletedCount} patient(s) was/were deleted.`)
 
