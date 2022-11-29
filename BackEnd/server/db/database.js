@@ -5,7 +5,7 @@ const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology:
 var _db;
 
 // Function to connect to the MongoDB cluster
-module.export={
+module.exports = {
     mongoConnect: async function mongoConnect(){
         try {
             // Connect the client to the server (optional starting in v4.7)
