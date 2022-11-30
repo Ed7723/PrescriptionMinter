@@ -40,6 +40,11 @@ module.exports = {
         }
 
     },
+    // Returns all patient and their information.
+    retrieveAllPatients: async function retrieveAllPatients(){
+        const result = await _db.db("Medical_Records".collection("Patient_Info").find({}));
+        return result
+    },
 
     // Updates a patient's information
     // Finds a patient based off one variable -> modify any number of variables in the entry

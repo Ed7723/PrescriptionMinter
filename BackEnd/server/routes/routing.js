@@ -12,7 +12,7 @@ const dbo = require("../db/database");
 const ObjectId = require("mongodb").ObjectId;
  
 // This section will help you create a new patient
-recordRoutes.route("/routing/add").post(function (req, response) {
+recordRoutes.route("/routing/add").post(function (req, res) {
  let myobj = {
   firstName:req.body.firstName,
   lastName:req.body.lastName,
@@ -23,11 +23,15 @@ recordRoutes.route("/routing/add").post(function (req, response) {
  dbo.createPatient(ObjectId,myobj);
 });
 // This section will help delete a patient.
-recordRoutes.route("/:id").post(function (req, response) {
+recordRoutes.route("/:id").delete(function (req, res) {
   let myobj = {
    patientIDSeed:req.body.patientIDSeed,
   };
   dbo.deletePatient(patientIDSeed);
  });
 
+ recordRoutes.route("/routing").get(function (req, res) {
+  const allPatients = dbo.retrievePatient();
+  res.json(allPatients)
+ });
 module.exports = recordRoutes;
