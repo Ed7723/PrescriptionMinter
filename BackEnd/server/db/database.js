@@ -119,7 +119,7 @@ module.exports = {
         const result = await _db.db("Medical_Records").collection("Prescription_Info").findOne({firstname: fn, lastname: ln, drug: dr, dateOfPrescription: dop});
         result._id.toString();
 
-    }
+    },
 
     // Returns the NFT ID of a prescription
     findNFT: async function findNFT(ID){
