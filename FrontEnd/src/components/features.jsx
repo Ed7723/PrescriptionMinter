@@ -3,7 +3,7 @@ import React from 'react'
 
 export const Features = () => {
     return (
-        <div className="container flex flex-col px-4 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row">
+        <div className="container flex flex-col pb-20 px-4 pt-16 mx-auto mt-10 space-y-12 md:space-y-0 md:flex-row h-screen">
 
             <div className="flex flex-col space-y-12 md:w-1/2">
                 <h2 className="max-w-md text-4xl font-bold text-center md:text-left">
@@ -87,7 +87,7 @@ export const Features = () => {
                             Ease of Access
                         </h3>
                         <p className="text-darkGrayishBlue">
-                            Each prescriptoken is stored securely on the XRP blockchain linked to the patient' medical profiles. 
+                            Each prescriptoken is stored securely on the XRP blockchain linked to the patient' medical profiles.
                             It can then be easily accessed by the patients on any devices.
                         </p>
                     </div>
