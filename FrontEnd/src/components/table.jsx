@@ -1,4 +1,7 @@
 //This component will load a table
+import {COLUMNS} from './tableheader';
+import {useTable} from '@tanstack/react-table';
+import { useState, useEffect, useMemo } from 'react';
 export function Table() {
 
 
