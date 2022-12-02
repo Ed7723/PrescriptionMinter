@@ -6,8 +6,8 @@ import { NavLink } from "react-router-dom";
 export const Hero = () => {
     return (
         <div className="px-6 md:px-8">
-            <div className='w-full h-[60%] bg-transparent absolute blur-lg'>
-                <img className='w-full h-full mix-blend-overlay ' src={rxlogo} alt="" />
+            <div className='w-full h-[50%] bg-transparent absolute blur-lg'>
+                <img className='w-full h-full mix-blend-overlay' src={rxlogo} alt="" />
             </div>
 
             <div className="mx-auto max-w-3xl pt-20 pb-32 md:pt-48 md:pb-40">
