@@ -1,12 +1,14 @@
 //This component will load a table
 import {COLUMNS} from './tableheader';
-import {useReactTable} from '@tanstack/react-table';
+import {useTable} from 'react-table';
 import { useState, useEffect, useMemo } from 'react';
 export function Table() {
     const[data, setData] = useState([]);
 
     const columns = useMemo(()=> COLUMNS,[]);
-    const tableInstance =useReactTable({columns,data});
+    const tableInstance =useTable({columns,data});
+    const { getTableProps, getTableBodyProps, headerGroups, rows, prepareRow } =
+        useTable({ columns, data });
 
     return (
         <>
