@@ -1,6 +1,6 @@
 //This component will load a table
 import {COLUMNS} from './tableheader';
-import {useTable, useGlobalFilter} from 'react-table';
+import {useTable, useFilters} from 'react-table';
 import { useState, useEffect, useMemo } from 'react';
 export function Table() {
     const[data, setData] = useState([]);
@@ -13,7 +13,7 @@ export function Table() {
         state,
         setGlobalFilter,
         prepareRow,
-    } = useTable({ columns, data }, useGlobalFilter);
+    } = useTable({ columns, data }, useFilters);
     const globalFilter = state;
 
     return (
@@ -41,6 +41,9 @@ export function Table() {
                                             {headerGroup.headers.map((column) => (
                                                 <th {...column.getHeaderProps()}>
                                                     {column.render('Header')}
+                                                    <div>
+                                                        {column.canFilter ? column.render('Filter') : null}
+                                                    </div>
                                                 </th>
                                             ))}
                                         </tr>
