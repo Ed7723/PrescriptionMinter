@@ -1,9 +1,12 @@
 //This component will load a table
 import {COLUMNS} from './tableheader';
-import {useTable} from '@tanstack/react-table';
+import {useReactTable} from '@tanstack/react-table';
 import { useState, useEffect, useMemo } from 'react';
 export function Table() {
+    const[data, setData] = useState([]);
 
+    const columns = useMemo(()=> COLUMNS,[]);
+    const tableInstance =useReactTable({columns,data});
 
     return (
         <>
@@ -26,182 +29,33 @@ export function Table() {
                     </div>
                     <div className="-mx-4 sm:-mx-8 px-4 sm:px-8 py-4 overflow-x-auto">
                         <div className="inline-block min-w-full shadow rounded-lg overflow-hidden">
-                            <table className="min-w-full leading-normal">
+                            <table className="min-w-full leading-normal" {...getTableProps()}>
                                 <thead>
-                                    <tr>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Name
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Date of Birth
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Patient ID
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                            Sex
-                                        </th>
-                                        <th scope="col" className="px-5 py-3 bg-white  border-b border-gray-200 text-gray-800  text-left text-sm uppercase font-normal">
-                                        </th>
-                                    </tr>
+                                    {headerGroups.map((headerGroup) => (
+                                        <tr {...headerGroup.getHeaderGroupProps()}>
+                                            {headerGroup.headers.map((column) => (
+                                                <th {...column.getHeaderProps()}>
+                                                    {column.render('Header')}
+                                                </th>
+                                            ))}
+                                        </tr>
+                                    ))}
                                 </thead>
-                                <tbody>
-                                    <tr>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <div className="flex items-center">
-                                                <div className="flex-shrink-0">
-                                                    <a href="#" className="block relative">
-                                                    </a>
-                                                </div>
-                                                <div className="ml-3">
-                                                    <p className="text-gray-900 whitespace-no-wrap">
-                                                        Jane Doe
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                Patient
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                1234
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span>
-                                                <span className="relative">
-                                                    Female
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <div className="flex items-center">
-                                                <div className="flex-shrink-0">
-                                                    <a href="#" className="block relative">
-                                                    </a>
-                                                </div>
-                                                <div className="ml-3">
-                                                    <p className="text-gray-900 whitespace-no-wrap">
-                                                        John Doe
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                Patient
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                12345
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span>
-                                                <span className="relative">
-                                                    Male
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <div className="flex items-center">
-                                                <div className="flex-shrink-0">
-                                                    <a href="#" className="block relative">
-                                                    </a>
-                                                </div>
-                                                <div className="ml-3">
-                                                    <p className="text-gray-900 whitespace-no-wrap">
-                                                        John Smith
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                Doctor
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                abcde
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span>
-                                                <span className="relative">
-                                                    Male
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <div className="flex items-center">
-                                                <div className="flex-shrink-0">
-                                                    <a href="#" className="block relative">
-                                                    </a>
-                                                </div>
-                                                <div className="ml-3">
-                                                    <p className="text-gray-900 whitespace-no-wrap">
-                                                        Julien Huger
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                Patient
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <p className="text-gray-900 whitespace-no-wrap">
-                                                123456
-                                            </p>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <span className="relative inline-block px-3 py-1 font-semibold text-green-900 leading-tight">
-                                                <span aria-hidden="true" className="absolute inset-0 bg-green-200 opacity-50 rounded-full">
-                                                </span>
-                                                <span className="relative">
-                                                    Male
-                                                </span>
-                                            </span>
-                                        </td>
-                                        <td className="px-5 py-5 border-b border-gray-200 bg-white text-sm">
-                                            <a href="#" className="text-indigo-600 hover:text-indigo-900">
-                                                Edit
-                                            </a>
-                                        </td>
-                                    </tr>
+                                <tbody {...getTableBodyProps()}>
+                                    {rows.map((row) => {
+                                        prepareRow(row);
+                                        return (
+                                            <tr {...row.getRowProps()}>
+                                                {row.cells.map((cell) => {
+                                                    return (
+                                                        <td {...cell.getCellProps()}>
+                                                            {cell.render('Cell')}
+                                                        </td>
+                                                    );
+                                                })}
+                                            </tr>
+                                        );
+                                    })}
                                 </tbody>
                             </table>
                             <div className="px-5 bg-white py-5 flex flex-col xs:flex-row items-center xs:justify-between">
