@@ -20,7 +20,7 @@ recordRoutes.route("/routing/add").post(function (req, res) {
   sex:req.body.sex,
   patientIDSeed:req.body.patientIDSeed,
  };
- dbo.createPatient(ObjectId,myobj);
+ dbo.createPatient(myobj);
 });
 // This section will help delete a patient.
 recordRoutes.route("/:id").delete(function (req, res) {
