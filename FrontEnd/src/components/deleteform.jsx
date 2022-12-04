@@ -17,7 +17,7 @@ export function Deleteform() {
     const toBeDeleted = { ...form };
     //Currently only works on localhost
     await fetch("http://localhost:8000/routing/:id", {
-      method: "POST",
+      method: "delete",
       headers: {
         "Content-Type": "application/json",
       },
