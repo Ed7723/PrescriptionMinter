@@ -29,9 +29,17 @@ recordRoutes.route("/:id").delete(function (req, res) {
   };
   dbo.deletePatient(patientIDSeed);
  });
-
+// This section will find all patients.
  recordRoutes.route("/routing").get(function (req, res) {
   const allPatients = dbo.retrievePatient();
   res.json(allPatients)
  });
+// This section will help create a new prescription.
+ recordRoutes.route("/routing/addPrescript").get(function (req, res) {
+  let myobj = {
+    
+   };
+   dbo.createPrescription(ObjectId,myobj);
+ });
+
 module.exports = recordRoutes;

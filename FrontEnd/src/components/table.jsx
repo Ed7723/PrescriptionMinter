@@ -16,6 +16,19 @@ export function Table() {
     } = useTable({ columns, data }, useFilters);
     const globalFilter = state;
 
+    useEffect(()=>{
+        const fetchData = async ()=>{
+            const response =  await fetch("http://localhost:8000/routing/")
+                if (!response.ok) {
+                    const message = `An error occurred: ${response.statusText}`;
+                    window.alert(message);
+                    return;
+                  };
+                const records = await response.json();
+        };
+        fetchData();
+    },[]);
+
     return (
         <>
             <div className="container mx-auto px-4 sm:px-8 max-w-3xl min-h-screen">
