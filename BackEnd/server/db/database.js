@@ -2,7 +2,7 @@ require('dotenv').config({path: '../config.env'}); // module to prevent exposure
 const { MongoClient} = require('mongodb'); // MongoDB module
 const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@prescriptoken-cluster.dwtcg4i.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true}); // creates connection to MongoDB cluster
-var _db;
+
 
 // Function to connect to the MongoDB cluster
 module.exports = {
@@ -13,23 +13,29 @@ module.exports = {
             // Establish and verify connection
             await client.db("Medical_Records").command({ ping: 1 });
             console.log("Connected successfully to server");
-          } finally {
-            // Ensures that the client will close when you finish/error
-            await client.close();
-          }
+        } 
+        catch (e){
+            console.error(e);
+        }
     },
 
     // Creates a patient entry from data passsed into its parameter.
     createPatient: async function createPatient(Patient){
-
-        const result = await _db.db("Medical_Records").collection("Patient_Info").insertOne(Patient);
+        const thisPatient = {
+            firstName: Patient.firstName,
+            lastName: Patient.lastName,
+            sex: Patient.sex,
+            dateOfBirth:Patient.dateOfBirth,
+            patientIDSeed:Patient.patientIDSeed,
+        }
+        const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(thisPatient);
         console.log(`New patient created with the following id: ${result.insertedId}`);
     },
 
     // Finds a patient
     retrievePatient: async function retrievePatient(ID){
 
-        const result = await _db.db("Medical_Records").collection("Patient_Info").findOne({firstname: ID}); // change firstname from {firstname: ID} to anything else to query based off other variables
+        const result = await client.db("Medical_Records").collection("Patient_Info").findOne({firstname: ID}); // change firstname from {firstname: ID} to anything else to query based off other variables
 
         if (result) {
             console.log(`Found patient: ${ID}`);
@@ -42,7 +48,7 @@ module.exports = {
     },
     // Returns all patient and their information.
     retrieveAllPatients: async function retrieveAllPatients(){
-        const result = await _db.db("Medical_Records".collection("Patient_Info").find({}));
+        const result = await client.db("Medical_Records".collection("Patient_Info").find({}));
         return result
     },
 
@@ -50,7 +56,7 @@ module.exports = {
     // Finds a patient based off one variable -> modify any number of variables in the entry
     updatePatient: async function updatePatient( info, newinfo){
 
-        const result = await _db.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo});
+        const result = await client.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo});
 
         console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
         console.log(`${result.modifiedCount} patient(s) was/were updated.`)
@@ -60,7 +66,7 @@ module.exports = {
     // Combines create, read, and update functionality
     upsertPatient: async function upsertPatient(info, newinfo){
 
-        const result = await _db.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo}, {upsert: true}); // change firstname from {firstname: info} to anything else to query based off other variables
+        const result = await client.db("Medical_Records").collection("Patient_Info").updateOne({firstname: info}, {$set: newinfo}, {upsert: true}); // change firstname from {firstname: info} to anything else to query based off other variables
 
         console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
         
@@ -75,7 +81,7 @@ module.exports = {
     // Deletes a patient
     deletePatient: async function deletePatient(ID){
 
-        const result = await _db.db("Medical_Records").collection("Patient_Info").deleteOne({patientIDSeed: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
+        const result = await client.db("Medical_Records").collection("Patient_Info").deleteOne({patientIDSeed: ID}); // change firstname from {firstname: info} to anything else to query based off other variables
 
         console.log(`${result.deletedCount} patient(s) was/were deleted.`)
 
@@ -84,7 +90,7 @@ module.exports = {
     // Creates a prescription entry from data passsed into its parameter.
     createPrescription: async function createPrescription(Prescription){
 
-        const result = await _db.db("Medical_Records").collection("Prescription_Info").insertOne(Prescription);
+        const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(Prescription);
         console.log(`New prescription created with the following id: ${result.insertedId}`);
     },
 
@@ -92,7 +98,7 @@ module.exports = {
     // Combines create, read, and update functionality
     upsertPrescription: async function upsertPrescription(info, newinfo){
 
-        const result = await _db.db("Medical_Records").collection("Prescription_Info").updateOne({drug: info}, {$set: newinfo}, {upsert: true}); // change drug from {drug: info} to anything else to query based off other variables
+        const result = await client.db("Medical_Records").collection("Prescription_Info").updateOne({drug: info}, {$set: newinfo}, {upsert: true}); // change drug from {drug: info} to anything else to query based off other variables
 
         console.log(`${result.matchedCount} prescription(s) matched the query criteria.`);
         
@@ -107,7 +113,7 @@ module.exports = {
     // Deletes a prescription
     deletePrescription: async function deletePrescription(ID){
 
-        const result = await _db.db("Medical_Records").collection("Prescription_Info").deleteOne({nftID: ID});
+        const result = await client.db("Medical_Records").collection("Prescription_Info").deleteOne({nftID: ID});
     
         console.log(`${result.deletedCount} prescription(s) was/were deleted.`)
     
@@ -116,7 +122,7 @@ module.exports = {
     // Finds a prescription based off patient first and last name, drug name, and date of prescription and returns the prescription's ID
     findPrescription: async function findPrescription(fn, ln, dr, dop){
 
-        const result = await _db.db("Medical_Records").collection("Prescription_Info").findOne({firstname: fn, lastname: ln, drug: dr, dateOfPrescription: dop});
+        const result = await client.db("Medical_Records").collection("Prescription_Info").findOne({firstname: fn, lastname: ln, drug: dr, dateOfPrescription: dop});
         result._id.toString();
 
     },
@@ -124,7 +130,7 @@ module.exports = {
     // Returns the NFT ID of a prescription
     findNFT: async function findNFT(ID){
 
-        const result = await _db.db("Medical_Records").collection("Prescription_Info").findOne({_id: ID});            
+        const result = await client.db("Medical_Records").collection("Prescription_Info").findOne({_id: ID});            
         result.nftID.toString();
     
     }
