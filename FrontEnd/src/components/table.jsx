@@ -1,9 +1,10 @@
 //This component will load a table
 import {COLUMNS} from './tableheader';
-import {useTable, useFilters} from 'react-table';
+import {useTable, useFilters, useGlobalFilter} from 'react-table';
 import { useState, useEffect, useMemo } from 'react';
 export function Table() {
     const[data, setData] = useState([]);
+
     const columns = useMemo(()=> COLUMNS,[]);
     const {
         getTableProps,
@@ -13,7 +14,7 @@ export function Table() {
         state,
         setGlobalFilter,
         prepareRow,
-    } = useTable({ columns, data }, useFilters);
+    } = useTable({ columns, data }, useFilters, useGlobalFilter);
     const globalFilter = state;
 
     useEffect(()=>{
@@ -23,8 +24,9 @@ export function Table() {
                     const message = `An error occurred: ${response.statusText}`;
                     window.alert(message);
                     return;
-                  };
+                };
                 const records = await response.json();
+                setData(records);
         };
         fetchData();
     },[]);
