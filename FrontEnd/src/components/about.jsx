@@ -2,7 +2,7 @@
 
 export function About() {
     return (
-        <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow ">
+        <div className="p-8 bg-white dark:bg-gray-800 rounded-lg shadow h-full">
             <p className="text-center text-3xl font-bold text-gray-800 dark:text-white">
                 The Prescriptoken Team
             </p>

@@ -29,7 +29,7 @@ export const Navbar = () => {
 
                 {/* Login Button */}
                 <div className="px-11 hidden md:block">
-                    <button className="inline-block rounded-lg px-3 py-1.5 font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-sm">Login</button>
+                    <button className="inline-block rounded-lg px-3 py-1.5 font-semibold leading-6 text-gray-900 shadow-sm ring-1 ring-gray-900/10 hover:ring-gray-900/20 text-sm"><NavLink to="/login">Login</NavLink></button>
                 </div>
 
                 {/* Cheeseburger Menu */}
