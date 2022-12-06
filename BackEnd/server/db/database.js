@@ -49,7 +49,7 @@ module.exports = {
     // Returns all patient and their information.
     retrieveAllPatients: async function retrieveAllPatients(){
         const result = await client.db("Medical_Records".collection("Patient_Info").find({}));
-        return result.json();
+        return result;
     },
 
     // Updates a patient's information

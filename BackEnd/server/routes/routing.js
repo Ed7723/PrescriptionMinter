@@ -33,7 +33,7 @@ recordRoutes.route("/:id").delete(function (req, res) {
 // This section will find all patients.
  recordRoutes.route("/routing").get(function (req, res) {
   const allPatients = dbo.retrievePatient();
-  res.json(allPatients)
+  res.json(allPatients);
  });
 // This section will help create a new prescription.
  recordRoutes.route("/routing/addPrescript").get(function (req, res) {
