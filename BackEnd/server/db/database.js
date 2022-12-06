@@ -89,8 +89,12 @@ module.exports = {
 
     // Creates a prescription entry from data passsed into its parameter.
     createPrescription: async function createPrescription(Prescription){
-
-        const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(Prescription);
+        const thisPrescript= {
+            patientName: Prescription.patientName,
+            drugName: Prescription.drugName,
+            expiryDate: Prescription.expiryDate
+        }
+        const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(thisPrescript);
         console.log(`New prescription created with the following id: ${result.insertedId}`);
     },
 

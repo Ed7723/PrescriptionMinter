@@ -38,9 +38,12 @@ recordRoutes.route("/:id").delete(function (req, res) {
 // This section will help create a new prescription.
  recordRoutes.route("/routing/addPrescript").get(function (req, res) {
   let myobj = {
-    
+      drugName:req.body.drugName,
+      patientName: req.body.patientName,
+      expirayDate: req.body.expirayDate,
    };
-   dbo.createPrescription(ObjectId,myobj);
+   dbo.createPrescription(myobj);
+   res.send("");
  });
 
 module.exports = recordRoutes;
