@@ -15,9 +15,9 @@ export const Navbar = () => {
         <div className='relative container mx-auto'>
             <div className='flex items-center justify-between'>
                 {/* Logo */}
-                <a href="" className='pt-2'>
+                <div className='pt-2'>
                     <NavLink to="/"><img className="object-cover h-40 w80" src={logo} alt="" /></NavLink>
-                </a>
+                </div>
 
                 {/* Menu Items */}
                 <ul className="hidden space-x-10 md:flex">
@@ -46,7 +46,7 @@ export const Navbar = () => {
                         <li className="p-4 border-b border-gray-600"><NavLink to="/input">New Patient</NavLink></li>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/features">Features</NavLink></li>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/about">About</NavLink></li>
-                        <li className="p-4">Log In</li>
+                        <li className="p-4"><NavLink to="/login">Log In</NavLink></li>
                     </ul>
 
                 </div>
