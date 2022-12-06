@@ -14,10 +14,10 @@ function App() {
       <BrowserRouter>
         <Navbar />
         <Routes>
-          <Route path="/" element={<Home />} ></Route>
+          <Route path="/" exact element={<Home />} ></Route>
           <Route path="/login" element={<Login />} ></Route>
           <Route path="/database" element={<DatabaseTable />} ></Route>
-          <Route path="/input" exact element={<Inputform />} ></Route>
+          <Route path="/input" element={<Inputform />} ></Route>
           <Route path="/about" element={<About />} ></Route>
           <Route path="/features" element={<Features />} ></Route>
         </Routes>
