@@ -1,6 +1,6 @@
 import rxlogo from '../assets/logo.svg';
 
-export default function login() {
+export default function Login() {
   return (
         <div className="h-screen flex justify-center py-12 px-4 sm:px-6 lg:px-8">
             <div className="max-w-md w-full space-y-8">

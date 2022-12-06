@@ -21,6 +21,7 @@ recordRoutes.route("/routing/add").post(function (req, res) {
   patientIDSeed:req.body.patientIDSeed,
  };
  dbo.createPatient(myobj);
+ res.send("");
 });
 // This section will help delete a patient.
 recordRoutes.route("/:id").delete(function (req, res) {
