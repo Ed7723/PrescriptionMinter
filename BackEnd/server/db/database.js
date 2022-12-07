@@ -26,7 +26,6 @@ module.exports = {
             lastName: Patient.lastName,
             sex: Patient.sex,
             dateOfBirth:Patient.dateOfBirth,
-            patientIDSeed:Patient.patientIDSeed,
         }
         const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(thisPatient);
         console.log(`New patient created with the following id: ${result.insertedId}`);
