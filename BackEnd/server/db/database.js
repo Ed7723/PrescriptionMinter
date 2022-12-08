@@ -3,7 +3,7 @@ const { MongoClient} = require('mongodb'); // MongoDB module
 const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@prescriptoken-cluster.dwtcg4i.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true}); // creates connection to MongoDB cluster
 
-
+const account = require("../account");
 // Function to connect to the MongoDB cluster
 module.exports = {
     mongoConnect: async function mongoConnect(){
@@ -28,6 +28,7 @@ module.exports = {
             dateOfBirth:Patient.dateOfBirth,
         }
         const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(thisPatient);
+        account.getAccount(insertedId);
         console.log(`New patient created with the following id: ${result.insertedId}`);
     },
 

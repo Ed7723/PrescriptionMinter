@@ -3,12 +3,7 @@ import {COLUMNS} from './tableheader';
 import {useTable} from 'react-table';
 import { useState, useEffect, useMemo } from 'react';
 export function Table() {
-    const[data, setData] = useState({
-        firstName:"",
-        lastName:"",
-        sex:"",
-        dateOfBirth:"",
-    });
+    const[data, setData] = useState([]);
 
     const columns = useMemo(()=> COLUMNS,[]);
     const {
@@ -27,9 +22,8 @@ export function Table() {
                     window.alert(message);
                     return;
                 };
-                const records = await response;
-                console.log(records);
-                setData(records);
+                console.log(response);
+                setData(response);
         };
         fetchData();
     });
