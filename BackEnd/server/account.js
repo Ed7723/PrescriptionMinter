@@ -65,8 +65,9 @@ module.exports={
     //results += '\n\nnfts: ' + JSON.stringify(nfts, null, 2)
     //document.getElementById('PatientResultField').value = results    
 
-    // retrieve prescription/NFT ID and update prescription entry on MongoDB
-
+    // sends NFTokenID of transaction to MongoDB prescription entry
+    // nfts.NFTokenID  // use this call to return NFTokenID from mint transaction
+    
     client.disconnect()
   }, 
 
