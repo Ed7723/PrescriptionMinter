@@ -18,9 +18,9 @@ recordRoutes.route("/routing/add").post(function (req, res) {
   lastName:req.body.lastName,
   dateOfBirth:req.body.dateOfBirth,
   sex:req.body.sex,
-  patientIDSeed:req.body.patientIDSeed,
  };
  dbo.createPatient(myobj);
+ res.send("");
 });
 // This section will help delete a patient.
 recordRoutes.route("/:id").delete(function (req, res) {
@@ -32,14 +32,17 @@ recordRoutes.route("/:id").delete(function (req, res) {
 // This section will find all patients.
  recordRoutes.route("/routing").get(function (req, res) {
   const allPatients = dbo.retrievePatient();
-  res.json(allPatients)
+  res.json(allPatients);
  });
 // This section will help create a new prescription.
  recordRoutes.route("/routing/addPrescript").get(function (req, res) {
   let myobj = {
-    
+      drugName:req.body.drugName,
+      patientName: req.body.patientName,
+      expirayDate: req.body.expirayDate,
    };
-   dbo.createPrescription(ObjectId,myobj);
+   dbo.createPrescription(myobj);
+   res.send("");
  });
 
 module.exports = recordRoutes;

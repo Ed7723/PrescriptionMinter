@@ -3,7 +3,7 @@ const { MongoClient} = require('mongodb'); // MongoDB module
 const uri = `mongodb+srv://${process.env.MongoDB_Username}:${process.env.MongoDB_Password}@prescriptoken-cluster.dwtcg4i.mongodb.net/?retryWrites=true&w=majority`; // link to MongoDB cluster
 const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true}); // creates connection to MongoDB cluster
 
-
+const account = require("../account");
 // Function to connect to the MongoDB cluster
 module.exports = {
     mongoConnect: async function mongoConnect(){
@@ -25,10 +25,11 @@ module.exports = {
             firstName: Patient.firstName,
             lastName: Patient.lastName,
             sex: Patient.sex,
-            dateOfBirth:Patient.dateOfBirth,
-            patientIDSeed:Patient.patientIDSeed,
+            dateOfBirth: Patient.dateOfBirth,
+            patientIDSeed: await account.getAccount(),
         }
         const result = await client.db("Medical_Records").collection("Patient_Info").insertOne(thisPatient);
+        //account.getAccount(insertedId);
         console.log(`New patient created with the following id: ${result.insertedId}`);
     },
 
@@ -49,7 +50,7 @@ module.exports = {
     // Returns all patient and their information.
     retrieveAllPatients: async function retrieveAllPatients(){
         const result = await client.db("Medical_Records".collection("Patient_Info").find({}));
-        return result
+        return result;
     },
 
     // Updates a patient's information
@@ -89,8 +90,12 @@ module.exports = {
 
     // Creates a prescription entry from data passsed into its parameter.
     createPrescription: async function createPrescription(Prescription){
-
-        const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(Prescription);
+        const thisPrescript= {
+            patientName: Prescription.patientName,
+            drugName: Prescription.drugName,
+            expiryDate: Prescription.expiryDate
+        }
+        const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(thisPrescript);
         console.log(`New prescription created with the following id: ${result.insertedId}`);
     },
 
