@@ -1,4 +1,7 @@
 //This javascript file will contain an about section for the creators.
+import ken from '../assets/ken.jpeg';
+import mongkol from '../assets/mongkol.jpeg';
+import edward from '../assets/edward.jpeg';
 
 export function About() {
     return (
@@ -14,7 +17,7 @@ export function About() {
                     <div className="text-center mb-4 opacity-90">
                         <a href="#" className="block relative">
                             {/*Enter image */}
-                            <img alt="" src="" className="mx-auto object-cover rounded-full h-40 w-40 " />
+                            <img alt="" src={ken} className="mx-auto object-cover rounded-full h-40 w-40 " />
                         </a>
                     </div>
                     <div className="text-center">
@@ -26,7 +29,7 @@ export function About() {
                         </p>
                         {/*Enter Description*/}
                         <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs py-4 font-light">
-                            Ken-Description
+                            First Year Computer Science Student at Thompson River University
                         </p>
                     </div>
                     <div className="pt-8 flex border-t border-gray-200 w-44 mx-auto text-gray-500 items-center justify-center">
@@ -48,7 +51,7 @@ export function About() {
                     <div className="text-center mb-4 opacity-90">
                         <a href="#" className="block relative">
                             {/*Enter image */}
-                            <img alt="" src="" className="mx-auto object-cover rounded-full h-40 w-40 " />
+                            <img alt="" src={mongkol} className="mx-auto object-cover rounded-full h-40 w-40 " />
                         </a>
                     </div>
                     <div className="text-center">
@@ -60,7 +63,7 @@ export function About() {
                         </p>
                         {/*Enter Description*/}
                         <p className="text-md text-gray-500 dark:text-gray-400 max-w-xs py-4 font-light">
-                            Mongkol-Description
+                            Programming Enthusiast, Graduate of University of British Columbia
                         </p>
                     </div>
                     <div className="pt-8 flex border-t border-gray-200 w-44 mx-auto text-gray-500 items-center justify-center">
@@ -82,7 +85,7 @@ export function About() {
                     <div className="text-center mb-4 opacity-90">
                         <a href="#" className="block relative">
                             {/*Enter image */}
-                            <img alt="" src="" className="mx-auto object-cover rounded-full h-40 w-40 " />
+                            <img alt="" src={edward} className="mx-auto object-cover rounded-full h-40 w-40 " />
                         </a>
                     </div>
                     <div className="text-center">
