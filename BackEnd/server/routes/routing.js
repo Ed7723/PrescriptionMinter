@@ -39,7 +39,7 @@ recordRoutes.route("/:id").delete(function (req, res) {
   let myobj = {
       drugName:req.body.drugName,
       patientName: req.body.patientName,
-      expirayDate: req.body.expirayDate,
+      expiryDate: req.body.expiryDate,
    };
    dbo.createPrescription(myobj);
    res.send("");
