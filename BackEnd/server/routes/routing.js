@@ -18,7 +18,6 @@ recordRoutes.route("/routing/add").post(function (req, res) {
   lastName:req.body.lastName,
   dateOfBirth:req.body.dateOfBirth,
   sex:req.body.sex,
-  patientIDSeed:req.body.patientIDSeed,
  };
  dbo.createPatient(myobj);
  res.send("");

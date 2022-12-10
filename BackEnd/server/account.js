@@ -1,5 +1,7 @@
+const xrpl = require("xrpl")
+
 module.exports={ 
-  getAccount: async function getAccount(type,patientIDSeed){
+  getAccount: async function getAccount(){
 
     // creates patient wallet on the XRPL
       let net = "wss://xls20-sandbox.rippletest.net:51233"; //XLS20-NFT
@@ -11,9 +13,14 @@ module.exports={
       
       const my_wallet = (await xrpl_client.fundWallet(null, { faucetHost })).wallet;
       //const my_balance = (await xrpl_client.getXrpBalance(my_wallet.address));
-      patientIDSeed = my_wallet.seed;               // please replace with field where the patiient ID (account seed) is supposed to go
+      
+      const patientIDSeed = my_wallet.seed;
+      //console.log(patientIDSeed);
 
       xrpl_client.disconnect();
+
+      console.log(patientIDSeed);
+      return patientIDSeed;
   },
 
   // irrelevant function, do not use
