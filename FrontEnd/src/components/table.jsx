@@ -22,8 +22,8 @@ export function Table() {
                     window.alert(message);
                     return;
                 };
-                console.log(response);
-                setData(response);
+                const record = await response.json();
+                setData(record.data);
         };
         fetchData();
     });
