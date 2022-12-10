@@ -38,7 +38,7 @@ recordRoutes.route("/:id").delete(function (req, res) {
  recordRoutes.route("/routing/addPrescript").get(function (req, res) {
   let myobj = {
       drugName:req.body.drugName,
-      patientName: req.body.patientName,
+      patientIDSeed: req.body.patientIDSeed,
       expiryDate: req.body.expiryDate,
    };
    dbo.createPrescription(myobj);

@@ -91,7 +91,7 @@ module.exports = {
     // Creates a prescription entry from data passsed into its parameter.
     createPrescription: async function createPrescription(Prescription){
         const thisPrescript= {
-            patientName: Prescription.patientName,
+            patientIDSeed: Prescription.patientIDSeed,
             drugName: Prescription.drugName,
             expiryDate: Prescription.expiryDate
         }
