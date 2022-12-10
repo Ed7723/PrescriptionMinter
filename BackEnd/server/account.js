@@ -1,4 +1,5 @@
 const xrpl = require("xrpl")
+const database = require("./db/database");
 
 module.exports={ 
   getAccount: async function getAccount(){
@@ -41,10 +42,10 @@ module.exports={
       client.disconnect()
   },
 
-  mintToken: async function mintToken(prescriptionID) {                               // connect input with findPrescription on database.js
+  mintToken: async function mintToken(patientIDSeed, drug, prescriptionID) {                         
     let net = "wss://xls20-sandbox.rippletest.net:51233" //XLS20-NFT
     
-    const patient_id = xrpl.Wallet.fromSeed(patIDSeedField.value)                     // replace patIDSeedField.value with input value for patient ID on the prescription page
+    const patient_id = xrpl.Wallet.fromSeed(patientIDSeed)                
     const client = new xrpl.Client(net)
     await client.connect()
         
@@ -54,7 +55,7 @@ module.exports={
     const transactionBlob = {
       "TransactionType": "NFTokenMint",
       "Account": patient_id.classicAddress,
-      "URI": "mongodb://" + prescriptionID,  // prescriptionID should be a string
+      "URI": xrpl.convertStringToHex("mongodb://" + prescriptionID),  // prescriptionID should be a string
       "Flags": 1,
       "TransferFee": 0,
       "NFTokenTaxon": 0 //Required, but if you have no use for it, set to zero.
@@ -73,9 +74,12 @@ module.exports={
     //document.getElementById('PatientResultField').value = results    
 
     // sends NFTokenID of transaction to MongoDB prescription entry
-    // nfts.NFTokenID  // use this call to return NFTokenID from mint transaction
+    const NFTID = nfts.NFTokenID;  // use this call to return NFTokenID from mint transaction
     
-    client.disconnect()
+    client.disconnect();
+
+    console.log(NFTID);
+    database.addNFTID(patientIDSeed, drug, NFTID);
   }, 
 
   burnToken: async function burnToken(prescriptionID) {                             // connect input with findNFT on database.js
