@@ -23,6 +23,7 @@ export const Navbar = () => {
                 <ul className="hidden space-x-10 md:flex">
                     <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/database">Patient Database</NavLink></li>
                     <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/input">New Patient</NavLink></li>
+                    <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/newprescript">New Prescription</NavLink></li>
                     <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/features">Features</NavLink></li>
                     <li className="font-semibold hover:text-darkGrayishBlue"><NavLink to="/about">About</NavLink></li>
                 </ul>
@@ -44,6 +45,7 @@ export const Navbar = () => {
                     <ul className='p-4 font-semibold'>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/database">Patient Database</NavLink></li>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/input">New Patient</NavLink></li>
+                        <li className="p-4 border-b border-gray-600"><NavLink to="/newprescript">New Prescription</NavLink></li>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/features">Features</NavLink></li>
                         <li className="p-4 border-b border-gray-600"><NavLink to="/about">About</NavLink></li>
                         <li className="p-4"><NavLink to="/login">Log In</NavLink></li>
