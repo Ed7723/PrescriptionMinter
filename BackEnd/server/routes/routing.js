@@ -35,7 +35,7 @@ recordRoutes.route("/:id").delete(function (req, res) {
   res.json(allPatients);
  });
 // This section will help create a new prescription.
- recordRoutes.route("/routing/addPrescript").get(function (req, res) {
+ recordRoutes.route("/routing/addPrescript").post(function (req, res) {
   let myobj = {
       drugName:req.body.drugName,
       patientIDSeed: req.body.patientIDSeed,
