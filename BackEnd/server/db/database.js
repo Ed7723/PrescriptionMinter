@@ -88,6 +88,15 @@ module.exports = {
 
     },
 
+    // Updates a patient's information to add NFTokenID
+    addNFTID: async function addNFTID(patientID, drug, NFTID){
+
+        const result = await client.db("Medical_Records").collection("Prescription_Info").updateOne({patientIDSeed: patientID, drugName: drug}, {$addFields: {NFTokenID: NFTID}}, {upsert: true});
+    
+        console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
+        console.log(`${result.modifiedCount} patient(s) was/were updated.`)
+    },
+
     // Creates a prescription entry from data passsed into its parameter.
     createPrescription: async function createPrescription(Prescription){
         const thisPrescript= {
@@ -97,16 +106,11 @@ module.exports = {
         }
         const result = await client.db("Medical_Records").collection("Prescription_Info").insertOne(thisPrescript);
         console.log(`New prescription created with the following id: ${result.insertedId}`);
-        await account.mintToken(Prescription.patientIDSeed, Prescription.drugName, result.insertedId);
-    },
-
-    // Updates a patient's information to add NFTokenID
-    addNFTID: async function addNFTID(patientID, drug, NFTID){
-
-        const result = await client.db("Medical_Records").collection("Prescription_Info").updateOne({patientIDSeed: patientID, drugName: drug}, {$addFields: {NFTokenID: NFTID}}, {upsert: true});
-
-        console.log(`${result.matchedCount} patient(s) matched the query criteria.`);
-        console.log(`${result.modifiedCount} patient(s) was/were updated.`)
+        const NFTID = await account.mintToken(Prescription.patientIDSeed, result.insertedId);
+        const fullresult = await client.db("Medical_Records").collection("Prescription_Info").updateOne({patientIDSeed: Prescription.patientIDSeed, drugName: Prescription.drugName}, 
+                                                                                                         {$set: {NFTokenID: NFTID}}, 
+                                                                                                         {upsert: true});
+        console.log(`Prescriptoken complete.`);
     },
 
     // Upserts a prescription's information
