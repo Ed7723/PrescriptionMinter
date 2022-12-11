@@ -41,6 +41,7 @@ module.exports={
       
       client.disconnect()
   },
+  
 
   mintToken: async function mintToken(patientIDSeed, prescriptionID) {                         
     let net = "wss://xls20-sandbox.rippletest.net:51233" //XLS20-NFT
@@ -74,13 +75,14 @@ module.exports={
     //document.getElementById('PatientResultField').value = results    
 
     // sends NFTokenID of transaction to MongoDB prescription entry
-    const NFTID = nfts.result.account_nfts[0].NFTokenID
-    //JSON.stringify(nfts.result.account_nfts[nfts.result.account_nfts.length - 1].NFTokenID, null, 2);  // use this call to return NFTokenID from mint transaction
+    const NFTID_list = nfts.result.account_nfts
     client.disconnect();
 
-    //console.log(JSON.stringify(nfts, null, 2))
+    const sorted_NFTID = NFTID_list.sort((a,b) => b.nft_serial - a.nft_serial);
+    const NFTID = sorted_NFTID[0].NFTokenID;
+    console.log(NFTID);
+    console.log(JSON.stringify(nfts, null, 2));
     return NFTID;
-    //console.log(JSON.stringify(NFTID, null, 2));
   }, 
 
   burnToken: async function burnToken(prescriptionID) {                             // connect input with findNFT on database.js
