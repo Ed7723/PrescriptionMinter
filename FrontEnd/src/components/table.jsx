@@ -16,17 +16,17 @@ export function Table() {
 
     useEffect(()=>{
         const fetchData = async ()=>{
-            const response =  await fetch("http://localhost:8000/routing/");
+            const response =  await fetch("http://localhost:8000/routing");
                 if (!response.ok) {
                     const message = `An error occurred: ${response.statusText}`;
                     window.alert(message);
                     return;
                 };
                 const record = await response.json();
-                setData(record.data);
+                setData(record);
         };
         fetchData();
-    });
+    },[]);
 
     return (
         <>

@@ -30,8 +30,8 @@ recordRoutes.route("/:id").delete(function (req, res) {
   dbo.deletePatient(patientIDSeed);
  });
 // This section will find all patients.
- recordRoutes.route("/routing").get(function (req, res) {
-  const allPatients = dbo.retrievePatient();
+ recordRoutes.route("/routing").get(async function (req, res) {
+  let allPatients = await dbo.retrieveAllPatients();
   res.json(allPatients);
  });
 // This section will help create a new prescription.
